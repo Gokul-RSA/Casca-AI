@@ -119,13 +119,6 @@ flowchart TD
 
 ---
 
-## Getting Started
-
-### 1. Clone the Repository
-bash
-git clone https://github.com/Vijaysingh1621/AI-powererd-interview-Assistant.git
-cd ai-interview-copilot
-
 
 ### 2. Install Dependencies
 bash
@@ -201,12 +194,6 @@ Visit [http://localhost:3000](http://localhost:3000) to use the Copilot.
 
 ---
 
-## License
-
-MIT License. See [LICENSE](./LICENSE) for details.
-
----
-
 ## Acknowledgments
 
 - [Deepgram](https://deepgram.com) for real-time transcription
@@ -216,12 +203,3 @@ MIT License. See [LICENSE](./LICENSE) for details.
 
 ---
 
-## Contact
-Author: Vijay Singh
-📧 Email: itisvijaysingh@gmail.com
-
-🔗 LinkedIn: https://www.linkedin.com/in/vijay-singh-b25483288/
-
-🔗 Repo: https://github.com/Vijaysingh1621/AI-powererd-interview-Assistant.git
-
-For support, feature requests, or enterprise solutions, please contact the maintainers or open an issue on GitHub.
