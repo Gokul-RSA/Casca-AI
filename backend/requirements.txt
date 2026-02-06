@@ -13,3 +13,4 @@ scikit-learn
 numpy
 python-dotenv
 alembic
+email-validator
