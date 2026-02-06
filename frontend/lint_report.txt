@@ -1,0 +1,32 @@
+
+> frontend@0.1.0 lint
+> eslint
+
+
+C:\Interview project\frontend\src\app\(auth)\layout.tsx
+  15:25   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  15:111  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Interview project\frontend\src\app\(dashboard)\dashboard\page.tsx
+  102:76   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  102:88   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  102:97   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  102:104  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  102:129  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Interview project\frontend\src\app\interview\[id]\page.tsx
+   5:29  warning  'CardDescription' is defined but never used      @typescript-eslint/no-unused-vars
+   9:10  warning  'RadialBarChart' is defined but never used       @typescript-eslint/no-unused-vars
+   9:26  warning  'RadialBar' is defined but never used            @typescript-eslint/no-unused-vars
+   9:37  warning  'Legend' is defined but never used               @typescript-eslint/no-unused-vars
+   9:45  warning  'ResponsiveContainer' is defined but never used  @typescript-eslint/no-unused-vars
+  32:46  error    Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+
+C:\Interview project\frontend\src\components\ui\input.tsx
+  5:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+C:\Interview project\frontend\src\components\ui\textarea.tsx
+  5:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+✖ 15 problems (10 errors, 5 warnings)
+
