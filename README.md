@@ -1,12 +1,5 @@
 # AI Interview Copilot
 
-<p align="center">
-  <img src="https://img.shields.io/badge/build-passing-brightgreen" alt="Build Status" />
-  <img src="https://img.shields.io/badge/license-MIT-blue" alt="License" />
-  <img src="https://img.shields.io/badge/PRs-welcome-green" alt="PRs Welcome" />
-  <img src="https://img.shields.io/badge/AI-Groq%20LLM-orange" alt="Groq LLM" />
-  <img src="https://img.shields.io/badge/Transcription-Deepgram-blueviolet" alt="Deepgram" />
-</p>
 
 ---
 
@@ -14,11 +7,6 @@
 
 *AI Interview Copilot* is a next-generation, real-time AI-powered assistant designed to streamline and enhance the technical interview process. Built for interviewers, hiring managers, and technical recruiters, this tool leverages state-of-the-art speech-to-text, large language models (LLMs), and retrieval-augmented generation (RAG) to provide instant, context-aware support during live interviews. The Copilot transcribes interviewer audio, analyzes candidate responses, and delivers intelligent, actionable suggestions, summaries, and follow-up questions—all in a clean, professional, and minimal UI.
 
-<p align="center">
-  <img src="./public/prototype.png" alt="AI Interview Copilot Prototype" width="800" />
-  <br />
-  <em>AI Interview Copilot - Real-time transcription and AI-powered assistance</em>
-</p>
 
 ---
 

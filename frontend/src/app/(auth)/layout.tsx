@@ -8,7 +8,7 @@ export default function AuthLayout({
             {/* Left Side - Visual */}
             <div className="hidden lg:flex flex-col justify-between p-12 bg-gradient-to-br from-indigo-900 to-slate-900 text-white">
                 <div>
-                    <h1 className="text-3xl font-bold">PrepAI</h1>
+                    <h1 className="text-3xl font-bold">Casca AI</h1>
                 </div>
                 <div className="space-y-4">
                     <blockquote className="text-2xl font-medium leading-relaxed">
@@ -20,7 +20,7 @@ export default function AuthLayout({
                     </div>
                 </div>
                 <div className="text-indigo-400 text-sm">
-                    © 2024 PrepAI Inc.
+                    © 2024 Casca AI Inc.
                 </div>
             </div>
 
