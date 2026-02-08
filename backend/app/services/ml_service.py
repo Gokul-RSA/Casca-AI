@@ -3,13 +3,19 @@ import torch
 
 class MLService:
     def __init__(self):
-        # Load model only once
-        self.model = SentenceTransformer('all-MiniLM-L6-v2') 
+        # Lazy load model
+        self.model = None
+
+    def _get_model(self):
+        if self.model is None:
+            self.model = SentenceTransformer('all-MiniLM-L6-v2')
+        return self.model
 
     def evaluate_answer(self, user_answer: str, ideal_answer: str, keywords: list[str]) -> dict:
         # 1. Compute Cosine Similarity
-        embeddings1 = self.model.encode(user_answer, convert_to_tensor=True)
-        embeddings2 = self.model.encode(ideal_answer, convert_to_tensor=True)
+        model = self._get_model()
+        embeddings1 = model.encode(user_answer, convert_to_tensor=True)
+        embeddings2 = model.encode(ideal_answer, convert_to_tensor=True)
         similarity_score = util.pytorch_cos_sim(embeddings1, embeddings2).item() * 100
 
         # 2. Check Keywords

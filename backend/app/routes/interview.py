@@ -3,20 +3,33 @@ from sqlalchemy.orm import Session
 from datetime import datetime
 import random
 
-from app.db.database import get_db
-from app.models.models import Interview, Question, Answer, User
-from app.schemas.schemas import InterviewCreate, InterviewResponse, AnswerCreate, AnswerResponse, QuestionResponse
+from app.core.database import get_db
+from app.models.interview import Interview
+from app.models.question import Question
+from app.models.answer import Answer
+from app.models.user import User
+from app.schemas.interview import InterviewCreate, InterviewResponse
+from app.schemas.answer import AnswerCreate, AnswerResponse
+from app.schemas.question import QuestionResponse
 from app.services.ml_service import ml_service
+from app.core.deps import get_current_user
 
 router = APIRouter(prefix="/interviews", tags=["Interviews"])
 
+@router.get("/dashboard")
+def get_dashboard(current_user: User = Depends(get_current_user)):
+    return {
+        "user_id": current_user.id,
+        "email": current_user.email,
+        "full_name": current_user.full_name,
+        "message": "Welcome to your protected dashboard!"
+    }
+
 @router.post("/start", response_model=InterviewResponse)
-def start_interview(interview_data: InterviewCreate, db: Session = Depends(get_db)):
-    # Placeholder: In real app, get current user from token
-    # user = db.query(User).first() 
+def start_interview(interview_data: InterviewCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     
     new_interview = Interview(
-        user_id=1, # Hardcoded for MVP
+        user_id=current_user.id,
         role_focus=interview_data.role_focus,
         start_time=datetime.utcnow()
     )
@@ -26,7 +39,7 @@ def start_interview(interview_data: InterviewCreate, db: Session = Depends(get_d
     return new_interview
 
 @router.post("/{interview_id}/submit_answer", response_model=AnswerResponse)
-def submit_answer(interview_id: int, answer_data: AnswerCreate, db: Session = Depends(get_db)):
+def submit_answer(interview_id: int, answer_data: AnswerCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     # 1. Get Question & Ideal Answer
     question = db.query(Question).filter(Question.id == answer_data.question_id).first()
     if not question:
@@ -60,7 +73,7 @@ def submit_answer(interview_id: int, answer_data: AnswerCreate, db: Session = De
     return new_answer
 
 @router.get("/{interview_id}/next_question", response_model=QuestionResponse)
-def get_next_question(interview_id: int, db: Session = Depends(get_db)):
+def get_next_question(interview_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     interview = db.query(Interview).filter(Interview.id == interview_id).first()
     if not interview:
         raise HTTPException(status_code=404, detail="Interview not found")

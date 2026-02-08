@@ -1,42 +1,26 @@
 import api from './api';
 
-// Mock user data for simulation
-const MOCK_USER = {
-    id: '1',
-    name: 'John Doe',
-    email: 'john@example.com',
-    token: 'mock-jwt-token'
-};
-
 export const authService = {
     login: async (credentials: any) => {
-        // Simulate API call delay
-        await new Promise(resolve => setTimeout(resolve, 1000));
-
-        // Mock successful login for any email/password
-        if (credentials.email && credentials.password) {
-            return {
-                user: { ...MOCK_USER, email: credentials.email },
-                token: 'mock-jwt-token'
-            };
-        }
-        throw new Error('Invalid credentials');
+        const response = await api.post('/auth/login', credentials);
+        return response.data;
     },
 
     register: async (userData: any) => {
-        // Simulate API call delay
-        await new Promise(resolve => setTimeout(resolve, 1000));
-
-        if (userData.email && userData.password && userData.name) {
-            return {
-                user: { ...MOCK_USER, ...userData },
-                token: 'mock-jwt-token'
-            };
-        }
-        throw new Error('Registration failed');
+        const response = await api.post('/auth/register', {
+            email: userData.email,
+            password: userData.password,
+            full_name: userData.name
+        });
+        return response.data;
     },
 
-    logout: () => {
-        // Handle logout
+    logout: async () => {
+        await api.post('/auth/logout');
+    },
+
+    getCurrentUser: async () => {
+        const response = await api.get('/interviews/dashboard');
+        return response.data;
     }
 };
