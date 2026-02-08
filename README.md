@@ -189,5 +189,146 @@ Visit [http://localhost:3000](http://localhost:3000) to use the Copilot.
 - [Pinecone](https://pinecone.io) and [Tavily](https://tavily.com) for RAG/search
 - [Next.js](https://nextjs.org), [React](https://react.dev), and [Tailwind CSS](https://tailwindcss.com) for the frontend
 
----
+You are an expert AI system architect, full-stack developer, and machine learning engineer.
+
+Your task is to DESIGN and BUILD an end-to-end AI Interview Preparation Platform.
+
+====================
+PROJECT GOAL
+====================
+Create a web-based platform that helps users prepare for interviews by:
+- Asking role-specific interview questions
+- Evaluating text and spoken answers using ML
+- Providing structured AI feedback
+- Tracking user progress over time
+
+The system must be production-ready, modular, scalable, and resume-worthy.
+
+====================
+CORE FEATURES
+====================
+
+1. USER INTERACTION
+- User authentication (JWT-based)
+- Role selection (Frontend, Backend, ML, Data Analyst, HR)
+- Mock interview sessions
+- Text-based and optional voice-based answers
+- Timed interview experience
+
+2. MACHINE LEARNING
+A. Answer Evaluation (NLP)
+- Convert user answers into embeddings using Sentence Transformers / BERT
+- Compare with ideal answers using cosine similarity
+- Score answers on:
+  - Relevance
+  - Clarity
+  - Keyword coverage
+  - Structure and length
+
+Return output in JSON:
+{
+  "score": number (0–100),
+  "strengths": [string],
+  "weaknesses": [string],
+  "suggestions": [string]
+}
+
+B. Question Recommendation
+- Recommend next questions based on:
+  - Role
+  - Difficulty
+  - User weak areas
+- Use rule-based logic initially
+- Keep architecture extensible for collaborative filtering
+
+C. Optional Voice Analysis
+- Speech-to-text (Whisper-style)
+- Detect filler words
+- Speaking speed
+- Confidence score
+
+D. Resume-Based Personalization (Advanced)
+- Parse uploaded resume
+- Extract skills and experience
+- Generate tailored interview questions
+
+====================
+TECH STACK (MANDATORY)
+====================
+Frontend:
+- React or Next.js
+- Tailwind CSS
+- Chart.js or Recharts
+
+Backend:
+- FastAPI
+- RESTful APIs
+- Background tasks for ML inference
+
+Database:
+- PostgreSQL (primary)
+- Redis (optional caching)
+
+ML Stack:
+- Sentence Transformers
+- NLP similarity scoring
+- Optional Whisper integration
+
+====================
+API DESIGN
+====================
+Design clean APIs including:
+- POST /auth/login
+- POST /auth/register
+- POST /start-interview
+- POST /submit-answer
+- GET /feedback/{answer_id}
+- GET /progress/{user_id}
+- POST /upload-resume
+
+====================
+DATABASE DESIGN
+====================
+Design normalized schemas for:
+- Users
+- Questions
+- Answers
+- Feedback
+- Progress
+
+Include SQL schema definitions.
+
+====================
+SYSTEM ARCHITECTURE
+====================
+Frontend → FastAPI Backend → ML Services → PostgreSQL
+Ensure clean separation of concerns.
+
+====================
+DELIVERABLES
+====================
+You must generate:
+
+1. High-level system architecture explanation
+2. ER diagram (textual description)
+3. Backend folder structure
+4. Frontend folder structure
+5. ML pipeline explanation
+6. Sample API request/response JSON
+7. Database schema (SQL)
+8. Deployment strategy (AWS / Render)
+9. Final-year project–ready explanation
+10. Clear implementation roadmap
+
+====================
+CONSTRAINTS
+====================
+- Write clean, readable, modular code
+- Explain decisions clearly
+- Assume this is a FINAL YEAR ENGINEERING PROJECT
+- Optimize for clarity, correctness, and real-world usability
+
+Begin step-by-step.
+Do not skip design reasoning.
+Explain before implementing.
 

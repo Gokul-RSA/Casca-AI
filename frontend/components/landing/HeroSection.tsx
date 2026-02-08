@@ -27,7 +27,6 @@ export default function HeroSection() {
                 </motion.div>
 
                 {/* Headline */}
-                {/* Headline */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -71,9 +70,9 @@ export default function HeroSection() {
                     transition={{ duration: 0.8, delay: 0.6 }}
                     className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16"
                 >
-                    <Link href="/dashboard">
+                    <Link href="/login">
                         <Button size="lg" className="h-16 px-10 text-lg rounded-2xl bg-white text-violet-950 hover:bg-gray-100 hover:scale-105 border-0 shadow-2xl shadow-indigo-500/20 transition-all font-bold">
-                            Roast My Resume <ArrowRight className="ml-2 w-5 h-5" />
+                            Roast Me <ArrowRight className="ml-2 w-5 h-5" />
                         </Button>
                     </Link>
                     <Link href="#how-it-works">
